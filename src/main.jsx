@@ -7,12 +7,22 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hi hi</div>,
+    Component: App,
+    children: [
+      {
+        // index: true,
+        path: "/",
+        element: <p>Welcome Home</p>,
+      },
+      {
+        path: "/about",
+        element: <div>This is about page</div>,
+      },
+    ],
   },
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
     <RouterProvider router={router} />
   </StrictMode>
 );
