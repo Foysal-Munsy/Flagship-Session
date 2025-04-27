@@ -1,12 +1,12 @@
 import React from "react";
+import Hero from "../components/Hero";
+import PhonesContainer from "../components/PhonesContainer";
 
 const Home = () => {
   return (
     <div>
-      <h1>Hero Section</h1>
-      <h1>Hero Section</h1>
-      <h1>Hero Section</h1>
-      <h1>Hero Section</h1>
+      <Hero></Hero>
+      <PhonesContainer></PhonesContainer>
     </div>
   );
 };
