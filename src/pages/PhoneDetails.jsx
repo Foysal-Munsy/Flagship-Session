@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import Button from "../ui/Button";
 import { MdAddShoppingCart, MdBookmarkAdd } from "react-icons/md";
+import { addFavorite } from "../utils";
 
 const PhoneDetails = () => {
   const data = useLoaderData();
@@ -20,14 +21,25 @@ const PhoneDetails = () => {
     storage,
     camera_info,
   } = singlePhone || {};
+  const handleFavorite = () => {
+    addFavorite(singlePhone);
+  };
   return (
-    <div className="w-full mt-20">
+    <div className="w-full mt-10">
       <img src={image} className="w-full mx-auto md:w-auto  mb-8" alt="" />
       <div className="flex justify-between">
         <h1 className="text-6xl font-thin mb-8">{name}</h1>
         <div className="space-x-2">
+          {/* <Button
+            onClick={() => handleCart(singlePhone)}
+            label={<MdAddShoppingCart />}
+          />
+          <Button
+            onClick={() => handleFavorite(singlePhone)}
+            label={<MdBookmarkAdd />}
+          /> */}
           <Button label={<MdAddShoppingCart />}></Button>
-          <Button label={<MdBookmarkAdd />}></Button>
+          <Button onClick={handleFavorite} label={<MdBookmarkAdd />}></Button>
         </div>
       </div>
       <div className="space-y-4">
