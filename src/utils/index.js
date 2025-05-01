@@ -10,8 +10,15 @@ export const getFavorites = () => {
 export const addFavorite = (phone) => {
   const favorites = getFavorites(); // Get current favorites
   const isExist = favorites.find((p) => p.id === phone.id);
-  if (isExist) return toast.success("Added");
+  if (isExist) return toast.error("Already Added!");
   favorites.push(phone); // Add new phone to array
   localStorage.setItem("favorites", JSON.stringify(favorites)); // Save updated array
-  console.log(favorites);
+  //   console.log(favorites);
+  toast.success("Phone added Successfully!");
+};
+export const removeFavorite = (id) => {
+  const favorites = getFavorites();
+  const remaining = favorites.filter((phone) => phone.id !== id);
+  localStorage.setItem("favorites", JSON.stringify(remaining));
+  toast.success("Phone Removed from Favorite List!");
 };
